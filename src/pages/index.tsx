@@ -6,6 +6,7 @@ import { api } from "~/utils/api";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const name=api.nameRouter.getName.useQuery()
 
   return (
     <>
@@ -46,6 +47,8 @@ export default function Home() {
           <div className={styles.showcaseContainer}>
             <p className={styles.showcaseText}>
               {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+              <br/>
+              My name is {name.data}
             </p>
             <AuthShowcase />
           </div>
